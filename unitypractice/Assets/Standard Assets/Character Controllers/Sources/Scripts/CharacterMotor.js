@@ -565,7 +565,7 @@ function SetControllable (controllable : boolean) {
 // Project a direction onto elliptical quater segments based on forward, sideways, and backwards speed.
 // The function returns the length of the resulting vector.
 function MaxSpeedInDirection (desiredMovementDirection : Vector3) : float {
-	if (desiredMovementDirection == Vector3.zero)
+	if ( desiredMovementDirection == Vector3.zero )
 		return 0;
 	else {
 		var zAxisEllipseMultiplier : float = (desiredMovementDirection.z > 0 ? movement.maxForwardSpeed : movement.maxBackwardsSpeed) / movement.maxSidewaysSpeed;
