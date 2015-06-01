@@ -49,6 +49,7 @@
      <Compile Include="Assets\csript\Cameraa.cs" />
      <Compile Include="Assets\csript\Shooting.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>F:/ZFS_Brother/Unity3D/unitypractice/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

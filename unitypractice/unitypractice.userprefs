@@ -1,10 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\csript\Shooting.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\csript\Shooting.js">
     <Files>
-      <File FileName="Assets\csript\Control.js" Line="11" Column="2" />
-      <File FileName="Assets\csript\Shooting.js" Line="9" Column="2" />
-      <File FileName="Assets\csript\Shooting.cs" Line="11" Column="2" />
+      <File FileName="Assets\csript\Shooting.js" Line="14" Column="76" />
+      <File FileName="Assets\csript\Control.js" Line="1" Column="1" />
+      <File FileName="Assets\csript\Destory.js" Line="13" Column="10" />
+      <File FileName="Assets\csript\AddUi.js" Line="7" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
