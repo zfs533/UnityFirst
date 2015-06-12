@@ -48,9 +48,14 @@
   <ItemGroup>
      <Compile Include="Assets\csript\AddUi.js" />
      <Compile Include="Assets\csript\Camera.js" />
+     <Compile Include="Assets\csript\Coll.js" />
+     <Compile Include="Assets\csript\Collisionn.js" />
      <Compile Include="Assets\csript\Control.js" />
      <Compile Include="Assets\csript\Destory.js" />
+     <Compile Include="Assets\csript\FirstPercen.js" />
      <Compile Include="Assets\csript\Shooting.js" />
+     <Compile Include="Assets\csript\player\DoorCodee.js" />
+     <Compile Include="Assets\csript\player\PlayerCollision.js" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
  <Reference Include="UnityEngine.UI">

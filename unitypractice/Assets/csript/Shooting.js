@@ -2,10 +2,11 @@
 public var speed : int = 5;
 public var bullet : Transform;
 public var score : int = 0;//得分
-public var bulletNum : int = 0;//炮弹数量
+public var bulletNum : int = 110;//炮弹数量
 function Start () 
 {
-	gameObject.Find("score").GetComponent(GUIText).text = "the bullet number:"+bulletNum.ToString()+"  current score:"+score.ToString();
+	//gameObject.Find("score").GetComponent(GUIText).text = "the bullet number:"+bulletNum.ToString()+"  current score:"+score.ToString();
+	//gameObject.Find("score").guiText.text = "the bullet number:"+bulletNum.ToString()+"  current score:"+score.ToString(); 
 }
 
 function Update () 
@@ -26,8 +27,10 @@ function Update ()
 		//给子弹一个重力[使其发射时射出]【相当于发射速度】
 		bullets.rigidbody.AddForce(direction*4000);
 		bulletNum++;
+		print(bulletNum);
 		//访问GUI.Text组件
-		gameObject.Find("score").GetComponent(GUIText).text = "the bullet number:"+bulletNum.ToString()+"  current score:"+score.ToString();
+		//gameObject.Find("score").GetComponent(GUIText).text = "the bullet number:"+bulletNum.ToString()+"  current score:"+score.ToString();
+		
 	}
 	//镜头向左旋转
 	if ( Input.GetKey(KeyCode.Q) )

@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\csript\Cameraa.cs" />
+     <Compile Include="Assets\csript\FirstSceneGui.cs" />
      <Compile Include="Assets\csript\Shooting.cs" />
+     <Compile Include="Assets\csript\player\Door.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
  <Reference Include="UnityEngine.UI">

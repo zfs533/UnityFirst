@@ -11,5 +11,7 @@ function Update ()
 	{
 		//销毁炮弹
 		Destroy(gameObject);
+		var bulletNum : float = gameObject.Find("Main Camera").GetComponent(Shooting).bulletNum;
+		print(bulletNum);
 	}
 }
