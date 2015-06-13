@@ -54,8 +54,10 @@
      <Compile Include="Assets\csript\Destory.js" />
      <Compile Include="Assets\csript\FirstPercen.js" />
      <Compile Include="Assets\csript\Shooting.js" />
+     <Compile Include="Assets\csript\others\PowerCell.js" />
      <Compile Include="Assets\csript\player\DoorCodee.js" />
      <Compile Include="Assets\csript\player\PlayerCollision.js" />
+     <Compile Include="Assets\csript\scene03\Collision03.js" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">

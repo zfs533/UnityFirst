@@ -1,5 +1,5 @@
 ﻿#pragma strict
-
+/*
 private var isOpen : boolean = false;
 private var openingTime : float = 0;
 private var currentDoor : GameObject;
@@ -8,6 +8,7 @@ public var openSound : AudioClip;
 public var closeSound : AudioClip;
 
 //角色控制器碰撞检测函数
+/*
 public function OnControllerColliderHit(hit:ControllerColliderHit)
 {
 	if ( hit.gameObject.tag == "playerDoor" && !isOpen )
@@ -16,26 +17,65 @@ public function OnControllerColliderHit(hit:ControllerColliderHit)
 		currentDoor = hit.gameObject;
 	}
 }
+*/
+
+private var powerNum : float = 0;
+private var tip		 : String = "当收集到4个能量源时才能进入小屋";
 
 //触发器碰撞检测函数
 public function OnTriggerEnter(col:Collider)
 {
-/*
-	if ( col.gameObject.tag == "player" )
+	if ( col.gameObject.tag == "playerDoor" )
 	{
-		transform.FindChild("door").SendMessage("openDoor");
+		if ( powerNum == 4 )
+		{
+			//访问名字为door物体上脚本中的openDoor函数
+			gameObject.Find("door").SendMessage("openDoor");
+		}
 	}
-	else
+	if ( col.gameObject.tag == "power0" )
 	{
-		print("zhou fang sheng");
-		transform.FindChild("door").SendMessage("openDoor");
+		//访问标签名为power物体上脚本中的distroyObject函数
+		gameObject.FindWithTag("power0").SendMessage("distroyObject");
+		powerNum++;
 	}
-	*/
+	if ( col.gameObject.tag == "power1" )
+	{
+		gameObject.FindWithTag("power1").SendMessage("distroyObject");
+		powerNum++;
+	}
+	if ( col.gameObject.tag == "power2" )
+	{
+		gameObject.FindWithTag("power2").SendMessage("distroyObject");
+		powerNum++;
+	}
+	if ( col.gameObject.tag == "power3" )
+	{
+		gameObject.FindWithTag("power3").SendMessage("distroyObject");
+		powerNum++;
+	}
 }
+
+public function OnGUI()
+{
+	GUILayout.BeginVertical();
+	GUILayout.Label("已收集到能量源" + powerNum + "个");
+	GUILayout.Space(10);
+	GUILayout.Label(tip);
+	GUILayout.EndVertical();
+}
+
+
 
 function Update () 
 {
-	if ( isOpen )
+	if ( powerNum == 4 )
+	{
+		tip = "能量源以收集齐全,请进入小屋";
+	}
+}
+/*
+if ( isOpen )
 	{
 		openingTime += Time.deltaTime;
 		if ( openingTime > openedTime )
@@ -44,20 +84,6 @@ function Update ()
 			closeDoor(currentDoor);
 		}
 	}
-	//光线投射
-	/*
-	var hit = RaycastHit;
-	if ( Physics.Raycast(transform.position,transform.forward,hit, 3) )
-	{
-		if ( hit.collider.gameObject.tag == "playerDoor" )
-		{
-			currentDoor = hit.collider.gameObject;
-			currentDoor.SendMessage("openDoor");
-		}
-	}
-	*/
-}
-
 //开门
 public function openDoor(door:GameObject)
 {
@@ -76,7 +102,7 @@ public function closeDoor (door:GameObject)
 		door.transform.parent.animation.Play("doorClose");
 	}
 }
-
+*/
 
 function Start () {
 

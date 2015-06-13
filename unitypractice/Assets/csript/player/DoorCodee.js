@@ -23,8 +23,18 @@ public function closeDoor ()
 	transform.parent.animation.Play("doorClose");
 }
 
-
-
+public function Update () 
+{
+	if ( isOpen )
+	{
+		openingTime += Time.deltaTime;
+		if ( openingTime > openedTime )
+		{
+			openingTime = 0;
+			closeDoor();
+		}
+	}
+}
 
 
 

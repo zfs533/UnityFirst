@@ -1,13 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\csript\player\PlayerCollision.js">
     <Files>
-      <File FileName="Assets\csript\player\DoorCodee.js" Line="13" Column="16" />
-      <File FileName="Assets\csript\player\PlayerCollision.js" Line="19" Column="1" />
-      <File FileName="Assets\csript\Collisionn.js" Line="1" Column="1" />
-      <File FileName="Assets\csript\FirstSceneGui.cs" Line="1" Column="1" />
-      <File FileName="Assets\csript\Destory.js" Line="1" Column="1" />
-      <File FileName="Assets\csript\FirstPercen.js" Line="1" Column="1" />
+      <File FileName="Assets\csript\scene03\Collision03.js" Line="14" Column="39" />
+      <File FileName="Assets\csript\player\PlayerCollision.js" Line="39" Column="33" />
+      <File FileName="Assets\csript\player\DoorCodee.js" Line="39" Column="1" />
+      <File FileName="Assets\csript\others\PowerCell.js" Line="13" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
