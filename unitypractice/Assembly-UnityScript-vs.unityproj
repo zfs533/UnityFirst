@@ -58,6 +58,7 @@
      <Compile Include="Assets\csript\player\DoorCodee.js" />
      <Compile Include="Assets\csript\player\PlayerCollision.js" />
      <Compile Include="Assets\csript\scene03\Collision03.js" />
+     <Compile Include="Assets\csript\scene03\UIText.js" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">

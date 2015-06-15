@@ -1,12 +1,20 @@
 ﻿#pragma strict
 public var speed : int = 5;
 public var bullet : Transform;
-public var score : int = 0;//得分
-public var bulletNum : int = 110;//炮弹数量
-function Start () 
+public static var score : int = 0;//得分//静态变量当做全局变量来用//使用方法:Shooting.score
+public var bulletNum : int = 0;//炮弹数量
+function Start()
 {
-	//gameObject.Find("score").GetComponent(GUIText).text = "the bullet number:"+bulletNum.ToString()+"  current score:"+score.ToString();
-	//gameObject.Find("score").guiText.text = "the bullet number:"+bulletNum.ToString()+"  current score:"+score.ToString(); 
+	transform.camera.depth = 1;
+}
+
+public function OnGUI()
+{
+	GUILayout.Space(10);
+	GUILayout.BeginHorizontal();
+	GUILayout.Space(20);
+	GUILayout.Label("the bullet number:"+bulletNum.ToString()+"  current score:"+score.ToString());
+	GUILayout.EndHorizontal();
 }
 
 function Update () 
@@ -28,9 +36,6 @@ function Update ()
 		bullets.rigidbody.AddForce(direction*4000);
 		bulletNum++;
 		print(bulletNum);
-		//访问GUI.Text组件
-		//gameObject.Find("score").GetComponent(GUIText).text = "the bullet number:"+bulletNum.ToString()+"  current score:"+score.ToString();
-		
 	}
 	//镜头向左旋转
 	if ( Input.GetKey(KeyCode.Q) )
@@ -56,7 +61,17 @@ function Update ()
 		var sp4 : float = -25 * Time.deltaTime;
 		transform.Rotate(sp4, 0, 0);
 	}
-	
+	jugementGameIsOver();
+}
+public function jugementGameIsOver()
+{
+	if ( score > 100 )
+	{
+		//transform.GetComponent(Shooting).enabled = false;
+		//transform.GetComponent(MouseLook).enabled = false;
+		//transform.camera.depth = -1;
+		Destroy(gameObject);
+	}
 }
 
 

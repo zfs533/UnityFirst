@@ -33,5 +33,5 @@ public function OnMouseExit()
 
 public function OnMouseDown()
 {
-	audio.Play();
+	//audio.Play();
 }

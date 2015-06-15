@@ -21,6 +21,22 @@ public function OnControllerColliderHit(hit:ControllerColliderHit)
 
 private var powerNum : float = 0;
 private var tip		 : String = "当收集到4个能量源时才能进入小屋";
+public var powerImgArr : Texture2D[];
+public var currentTexture : Texture;
+public static var textureCount : float = 0;
+
+function Start () 
+{
+	currentTexture = powerImgArr[0];
+} 
+
+function Update () 
+{
+	if ( powerNum == 4 )
+	{
+		tip = "能量源以收集齐全,请进入小屋";
+	}
+}
 
 //触发器碰撞检测函数
 public function OnTriggerEnter(col:Collider)
@@ -39,41 +55,23 @@ public function OnTriggerEnter(col:Collider)
 		gameObject.FindWithTag("power0").SendMessage("distroyObject");
 		powerNum++;
 	}
-	if ( col.gameObject.tag == "power1" )
-	{
-		gameObject.FindWithTag("power1").SendMessage("distroyObject");
-		powerNum++;
-	}
-	if ( col.gameObject.tag == "power2" )
-	{
-		gameObject.FindWithTag("power2").SendMessage("distroyObject");
-		powerNum++;
-	}
-	if ( col.gameObject.tag == "power3" )
-	{
-		gameObject.FindWithTag("power3").SendMessage("distroyObject");
-		powerNum++;
-	}
 }
 
 public function OnGUI()
 {
+	//GUI.color = Color.green;
 	GUILayout.BeginVertical();
 	GUILayout.Label("已收集到能量源" + powerNum + "个");
 	GUILayout.Space(10);
 	GUILayout.Label(tip);
-	GUILayout.EndVertical();
+	GUILayout.EndVertical();	
+	
+	GUI.DrawTexture(Rect(0, Screen.height - currentTexture.height, currentTexture.width, currentTexture.height),currentTexture);
 }
 
 
 
-function Update () 
-{
-	if ( powerNum == 4 )
-	{
-		tip = "能量源以收集齐全,请进入小屋";
-	}
-}
+
 /*
 if ( isOpen )
 	{
@@ -104,9 +102,6 @@ public function closeDoor (door:GameObject)
 }
 */
 
-function Start () {
-
-}
 
 
 
