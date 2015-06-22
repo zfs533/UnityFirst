@@ -55,10 +55,15 @@
      <Compile Include="Assets\csript\FirstPercen.js" />
      <Compile Include="Assets\csript\Shooting.js" />
      <Compile Include="Assets\csript\others\PowerCell.js" />
+     <Compile Include="Assets\csript\player\Destroy.js" />
      <Compile Include="Assets\csript\player\DoorCodee.js" />
+     <Compile Include="Assets\csript\player\HouseLight.js" />
+     <Compile Include="Assets\csript\player\Launch.js" />
      <Compile Include="Assets\csript\player\PlayerCollision.js" />
+     <Compile Include="Assets\csript\player\Target.js" />
      <Compile Include="Assets\csript\scene03\Collision03.js" />
      <Compile Include="Assets\csript\scene03\UIText.js" />
+     <Compile Include="Assets\csript\scene04\Login.js" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">

@@ -49,6 +49,8 @@
      <Compile Include="Assets\csript\Cameraa.cs" />
      <Compile Include="Assets\csript\FirstSceneGui.cs" />
      <Compile Include="Assets\csript\Shooting.cs" />
+     <Compile Include="Assets\csript\scene04\Login.cs" />
+     <Compile Include="Assets\csript\scene04\RoleMove.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
  <Reference Include="UnityEngine.UI">
