@@ -21,13 +21,26 @@ public function OnControllerColliderHit(hit:ControllerColliderHit)
 
 private var powerNum : float = 0;
 private var tip		 : String = "当收集到4个能量源时才能进入小屋";
+//电池
 public var powerImgArr : Texture2D[];
 public var currentTexture : Texture;
 public static var textureCount : float = 0;
+//能量源屋
+public var houseImgArr : Texture2D[];
+public var houseRender : Renderer;
+public var currentHouseTexture : Texture;
+private var isCollisionPower : boolean = false;
+
+//给玩家的提示信息
+private var tipInfo : String= "";
+private var isTip   : boolean = false;
+private var tipTime : float = 0;
+public  var lockedSounce : AudioClip;
 
 function Start () 
 {
-	currentTexture = powerImgArr[0];
+	currentTexture = powerImgArr[textureCount];
+	currentHouseTexture = houseImgArr[textureCount];
 } 
 
 function Update () 
@@ -43,19 +56,31 @@ public function OnTriggerEnter(col:Collider)
 {
 	if ( col.gameObject.tag == "playerDoor" )
 	{
+		//收集满能量源
 		if ( powerNum == 4 )
 		{
 			//访问名字为door物体上脚本中的openDoor函数
 			gameObject.Find("door").SendMessage("openDoor");
+			tipInfo = "能量源充足可进入房间";
+			isTip = true;
+		}
+		else//未收集满能量源,给玩家提示信息
+		{
+			AudioSource.PlayClipAtPoint(lockedSounce, transform.position);
+			tipInfo = "能量源不足,还需"+(4-powerNum)+"才能进入房间";
+			isTip = true;
 		}
 	}
+	//收集能量源,与能量源发射碰撞
 	if ( col.gameObject.tag == "power0" )
 	{
 		//访问标签名为power物体上脚本中的distroyObject函数
 		gameObject.FindWithTag("power0").SendMessage("distroyObject");
+		isCollisionPower = true;
 		powerNum++;
 	}
 }
+
 
 public function OnGUI()
 {
@@ -65,8 +90,31 @@ public function OnGUI()
 	GUILayout.Space(10);
 	GUILayout.Label(tip);
 	GUILayout.EndVertical();	
-	
-	GUI.DrawTexture(Rect(0, Screen.height - currentTexture.height, currentTexture.width, currentTexture.height),currentTexture);
+	if ( isCollisionPower )
+	{
+		//电池更换纹理
+	    GUI.DrawTexture(Rect(0, Screen.height - currentTexture.height, currentTexture.width, currentTexture.height),currentTexture);
+	}
+	//提示信息
+	showPlayerTip();
+}
+//玩家提示信息
+public function showPlayerTip()
+{
+	if ( isTip )
+	{
+		tipTime += Time.deltaTime;
+		if ( tipTime > 3 )
+		{
+			isTip = false;
+			tipTime = 0;
+		}
+	}
+	else 
+	{
+		tipInfo = "";
+	}
+	GUI.Label(Rect(Screen.width - tipInfo.Length*10 >> 1, Screen.height/2, Screen.width, Screen.height), tipInfo);
 }
 
 

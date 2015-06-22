@@ -17,7 +17,7 @@ public class FirstSceneGui : MonoBehaviour {
 	{
 		if ( GUI.Button (new Rect (100, 100, 120, 50), "Start Game") ) 
 		{
-			Application.LoadLevel(01);
+			Application.LoadLevel(02);
 		}
 
 		if ( GUI.Button (new Rect (100, 200, 120, 50), "Stop Game") ) 
