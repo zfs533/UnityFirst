@@ -36,6 +36,10 @@ private var tipInfo : String= "";
 private var isTip   : boolean = false;
 private var tipTime : float = 0;
 public  var lockedSounce : AudioClip;
+//显示瞄准器
+private var isTarget : boolean = false;
+public var targetTexture : Texture;
+
 
 function Start () 
 {
@@ -86,9 +90,19 @@ public function OnTriggerEnter(col:Collider)
 		//gameObject.Find("launcher").GetComponent(Launch).isLaunch = true;
 		//访问某对象上JS脚本的方法
 		gameObject.Find("launcher").SendMessage("setLaunchTrue");
+		isTarget = true;
+		gameObject.Find("launcher").GetComponent(Launch).isShowScore = true;
 	}
 }
-
+//碰撞结束
+public function OnTriggerExit(col : Collider)
+{
+	if ( col.gameObject.tag == "mat" )
+	{
+		isTarget = false;
+		gameObject.Find("launcher").GetComponent(Launch).isShowScore = false;
+	}
+}
 
 public function OnGUI()
 {
@@ -102,6 +116,10 @@ public function OnGUI()
 	{
 		//电池更换纹理
 	    GUI.DrawTexture(Rect(0, Screen.height - currentTexture.height, currentTexture.width, currentTexture.height),currentTexture);
+	}
+	if ( isTarget )
+	{
+		GUI.DrawTexture(Rect(Screen.width/2, Screen.height/2, targetTexture.width, targetTexture.height), targetTexture);
 	}
 	//提示信息
 	showPlayerTip();

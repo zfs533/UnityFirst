@@ -4,7 +4,7 @@ private var isCollision : boolean = false;
 private var targetAnimation : Animation;
 public var hitSounce : AudioClip;
 public var ressetSounce : AudioClip;
-private var ressetTime : int = 3;
+public static var ressetTime : float = 3;
 private var startTime : float = 0;
 
 function Start () 
@@ -44,6 +44,7 @@ public function startHit()
 	targetAnimation.Play("targetDown");
 	isCollision = true;
 	gameObject.Find("launcher").SendMessage("targetDownCountAdd");
+	gameObject.Find("launcher").SendMessage("jugementShootingWin");
 	//等待时间函数,引擎自带[延时]
 	yield new WaitForSeconds(ressetTime);
 	
