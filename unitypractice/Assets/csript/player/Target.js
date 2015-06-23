@@ -26,6 +26,8 @@ function Update ()
 		}
 	}
 }
+
+//基本碰撞检测
 public function OnCollisionEnter(theObject : Collision)
 {
 	if ( isCollision == false && theObject.gameObject.name == "coconut" )
@@ -41,6 +43,7 @@ public function startHit()
 	audio.PlayOneShot(hitSounce);
 	targetAnimation.Play("targetDown");
 	isCollision = true;
+	gameObject.Find("launcher").SendMessage("targetDownCountAdd");
 	//等待时间函数,引擎自带[延时]
 	yield new WaitForSeconds(ressetTime);
 	
@@ -48,5 +51,25 @@ public function startHit()
 	startTime = 0;
 	targetAnimation.Play("targetUp");
 	audio.PlayOneShot(ressetSounce);
+	gameObject.Find("launcher").SendMessage("targetDownCountCut");
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

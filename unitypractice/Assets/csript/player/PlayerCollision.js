@@ -79,6 +79,14 @@ public function OnTriggerEnter(col:Collider)
 		isCollisionPower = true;
 		powerNum++;
 	}
+	//站在垫子上启动发射器
+	if ( col.gameObject.tag == "mat" )
+	{
+		//访问其他物体上的JS脚本
+		//gameObject.Find("launcher").GetComponent(Launch).isLaunch = true;
+		//访问某对象上JS脚本的方法
+		gameObject.Find("launcher").SendMessage("setLaunchTrue");
+	}
 }
 
 
