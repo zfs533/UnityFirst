@@ -10,7 +10,7 @@ private var targetDownCount : int = 0;
 private var isWon : boolean = false;
 public var cellPrefab : GameObject;
 public var wonSound : AudioClip;
-private var myScore : int = 0;
+public var myScore : int = 0;
 public var scoreSring : String = "得分：0";
 public var isShowScore : boolean = false;
 
@@ -40,7 +40,7 @@ function Update ()
 	if ( isAliveLauncher && isWon == false )
 	{
 		//提示信息
-		launchTip = "\n发射器以激活\n1.鼠标点击发射椰子炮弹,\n2.同一段时间内打到三个靶子获胜";
+		launchTip = "\n发射器以激活\n1.鼠标点击发射椰子炮弹,\n2.同一段时间内打到三个靶子获胜,\n3.点击小屋右边电源箱重置游戏";
 		print(launchTip);
 		isAliveLauncher = false;
 	}
@@ -53,6 +53,8 @@ function Update ()
 			launchTip = "";
 		}
 	}
+	//得分
+	scoreSring = "得分：" + myScore.ToString()+"  "+"靶子恢复时间："+Target.ressetTime.ToString();
 }
 
 function setLaunchTrue()
@@ -73,7 +75,6 @@ function targetDownCountAdd()
 			Target.ressetTime = 0.5;
 		}
 		myScore += 100;
-		scoreSring = "得分：" + myScore.ToString()+"  "+"靶子恢复时间："+Target.ressetTime.ToString();
 	}
 }
 
@@ -85,13 +86,14 @@ function targetDownCountCut()
 function jugementShootingWin()
 {
 	//收集能量源
-	if ( targetDownCount == 3 && isWon == false )
+	//if ( targetDownCount == 3 && isWon == false )
+	if ( myScore >= 1000 && isWon == false )
 	{
 		transform.parent.audio.PlayOneShot(wonSound);
 		var power : GameObject = gameObject.Find("coconutShy/powerCell").gameObject;
 		power.transform.Translate(-1, 0, -2);
-		//Instantiate(cellPrefab, power.transform.position, power.transform.rotation);
-		//Destroy(power);
+		Instantiate(cellPrefab, power.transform.position, power.transform.rotation);
+		Destroy(power);
 		isWon = true;
 	}
 }
