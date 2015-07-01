@@ -49,6 +49,7 @@
      <Compile Include="Assets\csript\Cameraa.cs" />
      <Compile Include="Assets\csript\FirstSceneGui.cs" />
      <Compile Include="Assets\csript\Shooting.cs" />
+     <Compile Include="Assets\csript\scene03\ControlGui.cs" />
      <Compile Include="Assets\csript\scene04\Login.cs" />
      <Compile Include="Assets\csript\scene04\RoleMove.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />

@@ -54,6 +54,7 @@
      <Compile Include="Assets\csript\Destory.js" />
      <Compile Include="Assets\csript\FirstPercen.js" />
      <Compile Include="Assets\csript\Shooting.js" />
+     <Compile Include="Assets\csript\StandardAssets\ControlGui_JS.js" />
      <Compile Include="Assets\csript\others\PowerCell.js" />
      <Compile Include="Assets\csript\player\Destroy.js" />
      <Compile Include="Assets\csript\player\DoorCodee.js" />
