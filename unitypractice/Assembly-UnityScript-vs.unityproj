@@ -55,7 +55,10 @@
      <Compile Include="Assets\csript\FirstPercen.js" />
      <Compile Include="Assets\csript\Shooting.js" />
      <Compile Include="Assets\csript\StandardAssets\ControlGui_JS.js" />
+     <Compile Include="Assets\csript\others\FireJS.js" />
+     <Compile Include="Assets\csript\others\MatchBoxJS.js" />
      <Compile Include="Assets\csript\others\PowerCell.js" />
+     <Compile Include="Assets\csript\others\Rebase.js" />
      <Compile Include="Assets\csript\player\Destroy.js" />
      <Compile Include="Assets\csript\player\DoorCodee.js" />
      <Compile Include="Assets\csript\player\HouseLight.js" />
@@ -63,6 +66,8 @@
      <Compile Include="Assets\csript\player\PlayerCollision.js" />
      <Compile Include="Assets\csript\player\Target.js" />
      <Compile Include="Assets\csript\scene03\Collision03.js" />
+     <Compile Include="Assets\csript\scene03\RotateJS.js" />
+     <Compile Include="Assets\csript\scene03\SonJS.js" />
      <Compile Include="Assets\csript\scene03\UIText.js" />
      <Compile Include="Assets\csript\scene04\Login.js" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />

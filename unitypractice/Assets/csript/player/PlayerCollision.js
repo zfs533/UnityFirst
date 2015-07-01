@@ -36,6 +36,11 @@ private var tipInfo : String= "";
 private var isTip   : boolean = false;
 private var tipTime : float = 0;
 public  var lockedSounce : AudioClip;
+//显示瞄准器
+private var isTarget : boolean = false;
+public var targetTexture : Texture;
+//拾取火材盒
+public var isMatchBox : boolean = false;
 
 function Start () 
 {
@@ -79,8 +84,32 @@ public function OnTriggerEnter(col:Collider)
 		isCollisionPower = true;
 		powerNum++;
 	}
+	//站在垫子上启动发射器
+	if ( col.gameObject.tag == "mat" )
+	{
+		//访问其他物体上的JS脚本
+		//gameObject.Find("launcher").GetComponent(Launch).isLaunch = true;
+		//访问某对象上JS脚本的方法
+		gameObject.Find("launcher").SendMessage("setLaunchTrue");
+		isTarget = true;
+		gameObject.Find("launcher").GetComponent(Launch).isShowScore = true;
+	}
+	//点火
+	if ( col.gameObject.tag == "fire" )
+	{
+		print("firejdlafjdlajdflajdflj");
+	}
 }
 
+//碰撞结束
+public function OnTriggerExit(col : Collider)
+{
+	if ( col.gameObject.tag == "mat" )
+	{
+		isTarget = false;
+		gameObject.Find("launcher").GetComponent(Launch).isShowScore = false;
+	}
+}
 
 public function OnGUI()
 {
@@ -94,6 +123,10 @@ public function OnGUI()
 	{
 		//电池更换纹理
 	    GUI.DrawTexture(Rect(0, Screen.height - currentTexture.height, currentTexture.width, currentTexture.height),currentTexture);
+	}
+	if ( isTarget )
+	{
+		GUI.DrawTexture(Rect(Screen.width/2, Screen.height/2, targetTexture.width, targetTexture.height), targetTexture);
 	}
 	//提示信息
 	showPlayerTip();
@@ -117,42 +150,15 @@ public function showPlayerTip()
 	GUI.Label(Rect(Screen.width - tipInfo.Length*10 >> 1, Screen.height/2, Screen.width, Screen.height), tipInfo);
 }
 
-
-
-
-/*
-if ( isOpen )
-	{
-		openingTime += Time.deltaTime;
-		if ( openingTime > openedTime )
-		{
-			openingTime = 0;
-			closeDoor(currentDoor);
-		}
-	}
-//开门
-public function openDoor(door:GameObject)
+public function setMatchedBox()
 {
-	isOpen = true;
-	door.audio.PlayOneShot(openSound);
-	door.transform.parent.animation.Play("doorOpen");
+	isMatchBox = true;
 }
 
-//关门
-public function closeDoor (door:GameObject)
+public function getMatchedBox()
 {
-	isOpen = false;
-	if ( door )
-	{
-		door.audio.PlayOneShot(closeSound);
-		door.transform.parent.animation.Play("doorClose");
-	}
+	return isMatchBox;
 }
-*/
-
-
-
-
 
 
 

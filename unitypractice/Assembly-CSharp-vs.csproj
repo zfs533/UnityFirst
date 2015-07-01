@@ -52,6 +52,8 @@
      <Compile Include="Assets\csript\scene03\ControlGui.cs" />
      <Compile Include="Assets\csript\scene04\Login.cs" />
      <Compile Include="Assets\csript\scene04\RoleMove.cs" />
+     <Compile Include="Assets\csript\scene05\CubeCC.cs" />
+     <Compile Include="Assets\csript\scene05\ScaleCC.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
