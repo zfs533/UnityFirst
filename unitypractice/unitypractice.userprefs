@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\csript\scene05\ScaleCC.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\csript\scene05\CubeCC.cs">
     <Files>
-      <File FileName="Assets\csript\scene05\ScaleCC.cs" Line="17" Column="46" />
-      <File FileName="Assets\csript\scene05\CubeCC.cs" Line="6" Column="32" />
+      <File FileName="Assets\csript\scene05\ScaleCC.cs" Line="24" Column="29" />
+      <File FileName="Assets\csript\scene05\CubeCC.cs" Line="5" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
