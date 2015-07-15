@@ -31,6 +31,7 @@ public class ScaleCC : MonoBehaviour
 	}
 	public void OnGUI()
 	{
+		return;
 		GUI.color = Color.red;
 		GUILayout.Label("X轴缩放");
 		scaleX = GUILayout.HorizontalSlider(scaleX, 0.5f, 10.0f,GUILayout.Width(200));

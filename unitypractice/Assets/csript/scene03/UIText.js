@@ -1,4 +1,10 @@
 ﻿#pragma strict
+public static var isGui : boolean = false;
+public function showGui()
+{
+	isGui = true;
+}
+
 private var objs : GameObject[];
 public var texture : Texture;
 private var cloneObj : GameObject;
@@ -25,6 +31,19 @@ function Update ()
 
 public function OnGUI()
 {
+	if ( isGui )
+	{
+		GUILayout.BeginVertical();
+		GUILayout.Space(100);
+		GUILayout.BeginHorizontal();
+		GUILayout.Space(100);
+		GUILayout.Button("小润么么哒");
+		GUILayout.Space(100);
+		GUILayout.Label("小优么么哒");
+		GUILayout.EndHorizontal();
+		GUILayout.EndVertical();
+	}
+
 	if ( GUILayout.Button("添加旋转脚本组件", GUILayout.Width(150), GUILayout.Height(40) ) )
 	{
 		addScript();
@@ -78,14 +97,6 @@ private function createCube()
 	var cube : GameObject = Instantiate(cloneObj, Vector3(0, 1, 0), cloneObj.transform.rotation);
 	Destroy(cube, 2);
 }
-
-
-
-
-
-
-
-
 
 
 

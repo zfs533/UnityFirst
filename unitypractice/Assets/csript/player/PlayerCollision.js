@@ -6,17 +6,6 @@ private var currentDoor : GameObject;
 public var openedTime : float = 3;
 public var openSound : AudioClip;
 public var closeSound : AudioClip;
-
-//角色控制器碰撞检测函数
-/*
-public function OnControllerColliderHit(hit:ControllerColliderHit)
-{
-	if ( hit.gameObject.tag == "playerDoor" && !isOpen )
-	{
-		openDoor(hit.gameObject);
-		currentDoor = hit.gameObject;
-	}
-}
 */
 
 private var powerNum : float = 0;
@@ -39,12 +28,23 @@ public  var lockedSounce : AudioClip;
 //显示瞄准器
 private var isTarget : boolean = false;
 public var targetTexture : Texture;
-
+//拾取火材盒
+public var isMatchBox : boolean = false;
+private var isFireLight : boolean = false;
+private var fire : GameObject;
+private var smonk : GameObject;
+private var fireTip : String = "已收集到火柴盒，请前去打靶并获得1000分后，再前去点燃火堆吧!";
+private var fireTime : float = 0;
+private var isCondition : boolean = false;
 
 function Start () 
 {
 	currentTexture = powerImgArr[textureCount];
 	currentHouseTexture = houseImgArr[textureCount];
+	fire = gameObject.Find("campfire/fireParticle");
+	smonk = gameObject.Find("campfire/smokeParticle");
+	fire.active = false;
+	smonk.active = false;
 } 
 
 function Update () 
@@ -55,13 +55,37 @@ function Update ()
 	}
 }
 
+//角色控制器碰撞检测函数[点燃火堆]
+public function OnControllerColliderHit(hit:ControllerColliderHit)
+{
+	if ( hit.gameObject.tag == "fire" )
+	{
+		//var score = gameObject.Find("First Person Controller/Main Cameraa/launcher").GetComponent("Launch").myScore;
+		var score = Launch.myScore;
+		var bol = getMatchedBox();
+		if ( bol && !isFireLight && score >= 100 )
+		{
+			isFireLight = true;
+			fire.active = true;
+			smonk.active = true;
+			fireTip = "";
+		}
+		else
+		{
+		    isCondition = true;
+		 	fireTip = "点燃火堆条件不足，请完成以下任务\n1.收集能量源进入小屋拾取火柴盒.\n2.前去打靶获得1000分以上";
+		}
+	}
+}
+
+
 //触发器碰撞检测函数
 public function OnTriggerEnter(col:Collider)
 {
 	if ( col.gameObject.tag == "playerDoor" )
 	{
 		//收集满能量源
-		if ( powerNum == 4 )
+		if ( powerNum >= 4 )
 		{
 			//访问名字为door物体上脚本中的openDoor函数
 			gameObject.Find("door").SendMessage("openDoor");
@@ -94,6 +118,7 @@ public function OnTriggerEnter(col:Collider)
 		gameObject.Find("launcher").GetComponent(Launch).isShowScore = true;
 	}
 }
+
 //碰撞结束
 public function OnTriggerExit(col : Collider)
 {
@@ -119,10 +144,16 @@ public function OnGUI()
 	}
 	if ( isTarget )
 	{
-		GUI.DrawTexture(Rect(Screen.width/2, Screen.height/2, targetTexture.width, targetTexture.height), targetTexture);
+		GUI.DrawTexture(Rect(Screen.width/2, 100, targetTexture.width, targetTexture.height), targetTexture);
 	}
-	//提示信息
+	//玩家提示信息
 	showPlayerTip();
+	if ( isCondition && !isFireLight )
+	{
+		//点燃火堆提示信息
+		showFireTip();
+	}
+	
 }
 //玩家提示信息
 public function showPlayerTip()
@@ -142,43 +173,30 @@ public function showPlayerTip()
 	}
 	GUI.Label(Rect(Screen.width - tipInfo.Length*10 >> 1, Screen.height/2, Screen.width, Screen.height), tipInfo);
 }
-
-
-
-
-/*
-if ( isOpen )
-	{
-		openingTime += Time.deltaTime;
-		if ( openingTime > openedTime )
-		{
-			openingTime = 0;
-			closeDoor(currentDoor);
-		}
-	}
-//开门
-public function openDoor(door:GameObject)
+//点燃火堆提示信息
+private function showFireTip()
 {
-	isOpen = true;
-	door.audio.PlayOneShot(openSound);
-	door.transform.parent.animation.Play("doorOpen");
+	fireTime += Time.deltaTime;
+	if ( fireTime < 8 )
+	{
+		GUI.Label(Rect(Screen.width - fireTip.Length*10 >> 1, 100, Screen.width, Screen.height), fireTip);
+	}
+	else
+	{
+		isCondition = false;
+		fireTime = 0;
+	}
+}	
+
+public function setMatchedBox()
+{
+	isMatchBox = true;
 }
 
-//关门
-public function closeDoor (door:GameObject)
+public function getMatchedBox()
 {
-	isOpen = false;
-	if ( door )
-	{
-		door.audio.PlayOneShot(closeSound);
-		door.transform.parent.animation.Play("doorClose");
-	}
+	return isMatchBox;
 }
-*/
-
-
-
-
 
 
 

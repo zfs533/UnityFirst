@@ -1,9 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\csript\scene05\CubeCC.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Character Controllers\Sources\Scripts\JointTest.cs">
     <Files>
-      <File FileName="Assets\csript\scene05\ScaleCC.cs" Line="24" Column="29" />
-      <File FileName="Assets\csript\scene05\CubeCC.cs" Line="5" Column="2" />
+      <File FileName="Assets\csript\scene05\CubeCC.cs" Line="7" Column="26" />
+      <File FileName="Assets\csript\scene06\Introduce.cs" Line="1" Column="1" />
+      <File FileName="Assets\csript\scene05\ForceTst.cs" Line="22" Column="6" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\JointTest.cs" Line="33" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

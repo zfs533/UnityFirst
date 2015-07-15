@@ -10,7 +10,7 @@ private var targetDownCount : int = 0;
 private var isWon : boolean = false;
 public var cellPrefab : GameObject;
 public var wonSound : AudioClip;
-public var myScore : int = 0;
+public static var myScore : int = 0;
 public var scoreSring : String = "得分：0";
 public var isShowScore : boolean = false;
 
@@ -87,7 +87,7 @@ function jugementShootingWin()
 {
 	//收集能量源
 	//if ( targetDownCount == 3 && isWon == false )
-	if ( myScore >= 1000 && isWon == false )
+	if ( myScore >= 100 && isWon == false )
 	{
 		transform.parent.audio.PlayOneShot(wonSound);
 		var power : GameObject = gameObject.Find("coconutShy/powerCell").gameObject;

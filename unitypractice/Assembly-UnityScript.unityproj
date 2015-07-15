@@ -54,6 +54,9 @@
      <Compile Include="Assets\csript\Destory.js" />
      <Compile Include="Assets\csript\FirstPercen.js" />
      <Compile Include="Assets\csript\Shooting.js" />
+     <Compile Include="Assets\csript\StandardAssets\ControlGui_JS.js" />
+     <Compile Include="Assets\csript\others\FireJS.js" />
+     <Compile Include="Assets\csript\others\MatchBoxJS.js" />
      <Compile Include="Assets\csript\others\PowerCell.js" />
      <Compile Include="Assets\csript\others\Rebase.js" />
      <Compile Include="Assets\csript\player\Destroy.js" />
@@ -67,6 +70,8 @@
      <Compile Include="Assets\csript\scene03\SonJS.js" />
      <Compile Include="Assets\csript\scene03\UIText.js" />
      <Compile Include="Assets\csript\scene04\Login.js" />
+     <Compile Include="Assets\csript\scene05\ArrayTest.js" />
+     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
  <Reference Include="UnityEngine.UI">
