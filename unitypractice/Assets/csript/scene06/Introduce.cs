@@ -20,15 +20,12 @@ public class Introduce : MonoBehaviour
 	public GUIStyle playSkin;
 	public GUIStyle instructionSkin;
 	public GUIStyle quitSkin;
-
+	private bool isEscape = false;
 
 	void Start () 
 	{
 		instructionCarmera = GameObject.Find ("Camera");
 		instructionCarmera.camera.depth = -2;
-
-
-
 		testSkin = mySkins.customStyles[0];
 		playSkin = mySkins.customStyles[1];
 		instructionSkin = mySkins.customStyles[2];
@@ -57,6 +54,11 @@ public class Introduce : MonoBehaviour
 			isInstruction = false;
 			instructionCarmera.camera.depth = -2;
 		}
+		if (Input.GetKeyDown (KeyCode.Escape) && !isEscape) 
+		{
+			GUI.Window(0, new Rect(Screen.width/2, Screen.height/2, 300,400),windowContent,"mywindow");
+			isEscape = true;
+		}
 	}
 	public void OnGUI()
 	{
@@ -72,6 +74,19 @@ public class Introduce : MonoBehaviour
 			isBack = GUI.Button(new Rect(Screen.width-200,Screen.height-300,100, 50),"还回");
 			GUI.Label(new Rect(Screen.width/2-intruduce.Length,Screen.height/2-150,Screen.width, Screen.height), intruduce, testSkin);
 		}
+
+	}
+    void windowContent(int windowID)
+	{
+		GUILayout.BeginHorizontal ();
+		GUILayout.Space (50);
+		GUILayout.BeginVertical ();
+		GUILayout.Button ("继续游戏", GUILayout.Width (200));
+		GUILayout.Button ("继续游戏", GUILayout.Width (200));
+		GUILayout.Button ("继续游戏", GUILayout.Width (200));
+		GUILayout.Button ("继续游戏", GUILayout.Width (200));
+		GUILayout.EndVertical ();
+		GUILayout.EndHorizontal ();
 	}
 }
 
